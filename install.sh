@@ -124,7 +124,7 @@ REPLACE="
 print_modname() {
   ui_print "******************************"
   ui_print "*                            *"
-  ui_print "*      GLOBAL OPTIMIZED      *"
+  ui_print "*      Chinese OPTIMIZED     *"
   ui_print "*      GPS FILE REPLACER     *"
   ui_print "*                            *"
   ui_print "*       by ianhughes74       *"
@@ -149,7 +149,12 @@ on_install() {
   # The following is the default implementation: extract $ZIPFILE/system to $MODPATH
   # Extend/change the logic to whatever you want
   ui_print "- Extracting module files"
-  unzip -o "$ZIPFILE" 'system/*' -d $MODPATH >&2
+  if $(getprop gsm.operator.iso-country) = '[gsm.operator.iso-country]: [cn]';then
+    unzip -o "$ZIPFILE" 'system_china/*' -d $MODPATH >&2
+    settings put global ntp_server cn.ntp.org.cn
+  else
+    unzip -o "$ZIPFILE" 'system/*' -d $MODPATH >&2
+  fi
 }
 
 # Only some special files require specific permissions
