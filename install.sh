@@ -124,7 +124,7 @@ REPLACE="
 print_modname() {
   ui_print "******************************"
   ui_print "*                            *"
-  ui_print "*      Chinese OPTIMIZED     *"
+  ui_print "*      GLOBAL OPTIMIZED      *"
   ui_print "*      GPS FILE REPLACER     *"
   ui_print "*                            *"
   ui_print "*       by ianhughes74       *"
